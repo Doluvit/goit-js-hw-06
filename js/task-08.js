@@ -6,12 +6,14 @@ function onSubmitFormEl(event) {
   event.preventDefault();
   const formElements = event.currentTarget.elements;
   const email = formElements.email.value;
-  const password = formElements.password.value;
+  const password = formElements.password.value.trim();
   const formData = {
     email,
     password,
   };
-  if (formElements.email.value == "" || formElements.password.value == "") {
+  if (
+    !formElements.email.value ||
+    !formElements.password.value.trim()) {
     alert("Всі поля повинні бути заповнені!");
   } else {
     console.log(formData);
